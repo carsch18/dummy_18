@@ -1,136 +1,70 @@
-# 🧠 AIOps Command Center - R&D Documentation
+# 🧠 CEREBRO
+**Autonomous Infrastructure Intelligence Platform (Prototype)**
 
-## Project Codename: **CEREBRO**
-### Autonomous Infrastructure Intelligence Platform
+> **Standalone R&D Release**
+> 
+> This repository contains the R&D documentation and standalone UI prototypes for CEREBRO, the next-gen AIOps platform.
 
----
+## 🚀 Quick Start (Choose Your Flavor)
 
-```
-   ██████╗███████╗██████╗ ███████╗██████╗ ██████╗  ██████╗ 
-  ██╔════╝██╔════╝██╔══██╗██╔════╝██╔══██╗██╔══██╗██╔═══██╗
-  ██║     █████╗  ██████╔╝█████╗  ██████╔╝██████╔╝██║   ██║
-  ██║     ██╔══╝  ██╔══██╗██╔══╝  ██╔══██╗██╔══██╗██║   ██║
-  ╚██████╗███████╗██║  ██║███████╗██████╔╝██║  ██║╚██████╔╝
-   ╚═════╝╚══════╝╚═╝  ╚═╝╚══════╝╚═════╝ ╚═╝  ╚═╝ ╚═════╝ 
-                                                            
-        AUTONOMOUS INFRASTRUCTURE INTELLIGENCE PLATFORM
-```
+You can run either the modern **Bun.js** version (recommended) or the **Static** version. Both are fully standalone.
 
----
+### Option 1: Cerebro UI (Modern)
+*Tech Stack: Bun.js + Hono + Server-Side Comp_onents*
 
-## 📚 R&D Document Index
+1.  **Navigate to the UI folder:**
+    ```bash
+    cd cerebro-ui
+    ```
 
-| Document | Description |
-|----------|-------------|
-| [01-VISION.md](./01-VISION.md) | Product vision, goals, and philosophy |
-| [02-AWS-ARCHITECTURE.md](./02-AWS-ARCHITECTURE.md) | Complete AWS infrastructure design |
-| [03-CAPABILITIES.md](./03-CAPABILITIES.md) | All AIOps capabilities and features |
-| [04-AI-ML-SYSTEMS.md](./04-AI-ML-SYSTEMS.md) | ML models, anomaly detection, predictions |
-| [05-DATA-PIPELINES.md](./05-DATA-PIPELINES.md) | Event streaming and data flow architecture |
-| [06-OBSERVABILITY.md](./06-OBSERVABILITY.md) | Monitoring, tracing, and alerting stack |
-| [07-SECURITY.md](./07-SECURITY.md) | Security architecture and compliance |
-| [08-AGENT-FRAMEWORK.md](./08-AGENT-FRAMEWORK.md) | AI agent architecture and tool ecosystem |
-| [09-AUTOMATION-ENGINE.md](./09-AUTOMATION-ENGINE.md) | Remediation and self-healing systems |
-| [10-ARCHITECTURE-DIAGRAMS.md](./10-ARCHITECTURE-DIAGRAMS.md) | All system diagrams (ASCII/Mermaid) |
-| [11-IMPLEMENTATION-ROADMAP.md](./11-IMPLEMENTATION-ROADMAP.md) | Phased development plan |
-| [12-COST-ANALYSIS.md](./12-COST-ANALYSIS.md) | AWS cost projections and optimization |
+2.  **Install dependencies:**
+    ```bash
+    bun install
+    ```
+
+3.  **Run the development server:**
+    ```bash
+    bun run dev
+    ```
+
+4.  **Open in browser:**
+    👉 **http://localhost:3001**
 
 ---
 
-## 🎯 Executive Summary
+### Option 2: WebUI (Static)
+*Tech Stack: Pure HTML/CSS/JS (no installation required)*
 
-CEREBRO is designed to be the **most advanced autonomous infrastructure management platform** ever built. It combines:
+1.  **Navigate to the folder:**
+    ```bash
+    cd webui
+    ```
 
-- **Multi-Modal AI Agents** - LLMs that can see, reason, and act
-- **Real-Time Stream Processing** - Sub-second event correlation
-- **Predictive Intelligence** - Forecast failures before they happen
-- **Self-Healing Infrastructure** - Autonomous remediation with safety rails
-- **Knowledge Graph** - Deep understanding of system topology
-- **Multi-Cloud Native** - AWS-first with extensibility
-
----
-
-## 🏗️ High-Level Architecture Preview
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                           CEREBRO PLATFORM                                  │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                             │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐    │
-│  │   Web UI     │  │  Mobile App  │  │   CLI Tool   │  │   Slack Bot  │    │
-│  │  (Next.js)   │  │   (React)    │  │   (Rust)     │  │  (Node.js)   │    │
-│  └──────┬───────┘  └──────┬───────┘  └──────┬───────┘  └──────┬───────┘    │
-│         │                 │                 │                 │            │
-│         └─────────────────┴─────────────────┴─────────────────┘            │
-│                                   │                                         │
-│                          ┌────────▼────────┐                               │
-│                          │   API Gateway   │                               │
-│                          │   (Kong/AWS)    │                               │
-│                          └────────┬────────┘                               │
-│                                   │                                         │
-│  ┌────────────────────────────────┼────────────────────────────────────┐   │
-│  │                         BRAIN CLUSTER                               │   │
-│  │  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐  ┌────────────┐ │   │
-│  │  │ Orchestrator│  │  Reasoner   │  │  Planner    │  │  Executor  │ │   │
-│  │  │   Agent     │  │   Agent     │  │   Agent     │  │   Agent    │ │   │
-│  │  └─────────────┘  └─────────────┘  └─────────────┘  └────────────┘ │   │
-│  └─────────────────────────────────────────────────────────────────────┘   │
-│                                   │                                         │
-│  ┌────────────────────────────────┼────────────────────────────────────┐   │
-│  │                      DATA & ML LAYER                                │   │
-│  │  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐            │   │
-│  │  │ Vector   │  │ Time     │  │ Graph    │  │ Feature  │            │   │
-│  │  │ Store    │  │ Series   │  │ Database │  │ Store    │            │   │
-│  │  │(Pinecone)│  │(Timestr.)│  │ (Neo4j)  │  │ (Feast)  │            │   │
-│  │  └──────────┘  └──────────┘  └──────────┘  └──────────┘            │   │
-│  └─────────────────────────────────────────────────────────────────────┘   │
-│                                   │                                         │
-│  ┌────────────────────────────────┼────────────────────────────────────┐   │
-│  │                    STREAMING LAYER                                  │   │
-│  │            ┌───────────────────────────────────┐                    │   │
-│  │            │      Apache Kafka / Kinesis       │                    │   │
-│  │            └───────────────────────────────────┘                    │   │
-│  │  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐            │   │
-│  │  │ Metrics  │  │  Logs    │  │  Traces  │  │  Events  │            │   │
-│  │  │ Ingest   │  │ Ingest   │  │ Ingest   │  │ Ingest   │            │   │
-│  │  └──────────┘  └──────────┘  └──────────┘  └──────────┘            │   │
-│  └─────────────────────────────────────────────────────────────────────┘   │
-│                                                                             │
-└─────────────────────────────────────────────────────────────────────────────┘
-                                    │
-        ┌───────────────────────────┼───────────────────────────┐
-        │                           │                           │
-        ▼                           ▼                           ▼
-┌───────────────┐          ┌───────────────┐          ┌───────────────┐
-│  AWS Cloud    │          │  Kubernetes   │          │  On-Premise   │
-│  Resources    │          │  Clusters     │          │  Servers      │
-└───────────────┘          └───────────────┘          └───────────────┘
-```
+2.  **Open the file:**
+    Double-click `index.html` or run:
+    ```bash
+    # Mac
+    open index.html
+    
+    # Linux
+    xdg-open index.html
+    
+    # Windows
+    start index.html
+    ```
 
 ---
 
-## 🚀 Quick Links
+## 📚 Documentation
 
-- **Architecture Deep Dive**: [02-AWS-ARCHITECTURE.md](./02-AWS-ARCHITECTURE.md)
-- **All Capabilities**: [03-CAPABILITIES.md](./03-CAPABILITIES.md)
-- **Implementation Plan**: [11-IMPLEMENTATION-ROADMAP.md](./11-IMPLEMENTATION-ROADMAP.md)
+Detailed architecture and design docs are available in the root folder:
 
----
+- **01-VISION.md** - The grand vision
+- **02-AWS-ARCHITECTURE.md** - Production cloud setup
+- **03-CAPABILITIES.md** - Feature breakdown
+- **04-AI-ML-SYSTEMS.md** - The brain behind the ops
+- **11-IMPLEMENTATION-ROADMAP.md** - How we build it
 
-## 📊 Key Metrics Targets
+## 🎨 Theme
 
-| Metric | Target |
-|--------|--------|
-| Alert to Detection | < 5 seconds |
-| Detection to Diagnosis | < 30 seconds |
-| Diagnosis to Remediation | < 60 seconds |
-| False Positive Rate | < 5% |
-| Autonomous Resolution Rate | > 70% |
-| MTTR Reduction | > 80% |
-| Cost Optimization Savings | > 30% |
-
----
-
-*Last Updated: January 2026*
-*Version: 0.1.0-alpha*
+**"Dark Ops"** - A pitch-black interface with neon pink (#FF0080) and cyber green (#00FFAA) accents, designed for high-contrast visibility in command centers.
